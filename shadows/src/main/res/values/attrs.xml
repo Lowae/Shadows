@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="ShadowViews">
+        <attr name="shadow_radius" format="dimension" />
+        <attr name="shadow_color" format="color" />
+        <attr name="shadow_dx" format="dimension" />
+        <attr name="shadow_dy" format="dimension" />
+        <attr name="shadow_inset" format="dimension" />
+        <attr name="shadow_corner" format="dimension" />
+        <attr name="shadow_corner_tl" format="dimension" />
+        <attr name="shadow_corner_tr" format="dimension" />
+        <attr name="shadow_corner_bl" format="dimension" />
+        <attr name="shadow_corner_br" format="dimension" />
+        <attr name="shadow_background" format="reference|color" />
+        <attr name="include_shadow_padding" format="boolean" />
+    </declare-styleable>
+</resources>
