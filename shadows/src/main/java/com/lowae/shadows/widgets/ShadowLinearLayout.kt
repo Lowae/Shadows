@@ -1,18 +1,21 @@
-package com.lowae.shadows
+package com.lowae.shadows.widgets
 
 import android.content.Context
 import android.graphics.Canvas
 import android.util.AttributeSet
 import android.widget.LinearLayout
+import com.lowae.shadows.ShadowAbility
+import com.lowae.shadows.ShadowAbilityImpl
+import com.lowae.shadows.ShadowSpec
 
 class ShadowLinearLayout @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0,
     defStyleRes: Int = 0
-) : LinearLayout(context, attrs, defStyleAttr, defStyleRes), ShadowView {
+) : LinearLayout(context, attrs, defStyleAttr, defStyleRes), ShadowAbility {
 
-    private val shadowImpl: ShadowViewImpl = ShadowViewImpl(this)
+    private val shadowImpl: ShadowAbilityImpl = ShadowAbilityImpl(this)
 
     init {
         shadowImpl.initAttrs(attrs)

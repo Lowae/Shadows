@@ -4,6 +4,9 @@ import android.graphics.Color
 import androidx.annotation.ColorInt
 import androidx.annotation.Px
 
+/**
+ * CSS style shadow params
+ */
 data class ShadowSpec(
     @ColorInt var shadowColor: Int = Color.BLACK,
     @Px var shadowRadius: Float = 0f,

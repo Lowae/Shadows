@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <com.lowae.shadows.ShadowFrameLayout
+    <com.lowae.shadows.widgets.ShadowFrameLayout
         android:id="@+id/shadow_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,7 +27,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp" />
 
-    </com.lowae.shadows.ShadowFrameLayout>
+    </com.lowae.shadows.widgets.ShadowFrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

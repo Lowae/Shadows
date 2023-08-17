@@ -3,7 +3,10 @@ package com.lowae.shadows
 import androidx.annotation.ColorInt
 import androidx.annotation.Px
 
-interface ShadowView {
+/**
+ * Provides the ability to control the parameters of the shadow effect.
+ */
+interface ShadowAbility {
 
     fun updateShadowColor(@ColorInt shadowColor: Int)
 
