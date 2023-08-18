@@ -35,6 +35,8 @@ class ShadowAbilityImpl(override val view: View) : ShadowViewDelegate, ShadowAbi
     }
     private var includeShadowPadding = true
 
+    override val shadowSpec: ShadowSpec = shadowDrawable.shadowSpec
+
     override fun initAttrs(attrs: AttributeSet?) {
         val attr = view.context.obtainStyledAttributes(attrs, R.styleable.ShadowViews, 0, 0)
         try {

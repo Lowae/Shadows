@@ -11,11 +11,10 @@
         android:id="@+id/shadow_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="100dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="100dp"
         app:include_shadow_padding="true"
-        app:shadow_background="#0000ff"
-        app:shadow_color="#ff0000"
+        app:shadow_color="#8BC34A"
         app:shadow_corner="0dp"
         app:shadow_dx="0dp"
         app:shadow_dy="0dp"
@@ -24,8 +23,10 @@
 
         <ImageView
             android:id="@+id/image"
-            android:layout_width="100dp"
-            android:layout_height="100dp" />
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img" />
 
     </com.lowae.shadows.widgets.ShadowFrameLayout>
 

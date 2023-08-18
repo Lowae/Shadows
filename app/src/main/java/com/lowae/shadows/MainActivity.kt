@@ -15,14 +15,14 @@ class MainActivity : AppCompatActivity() {
         binding.shadowRadius.apply {
             seekbar.progress = 20
             seekbar.max = 32
-            current.text = "shadowRadius: ${seekbar.progress}"
+            current.text = "ShadowRadius: ${seekbar.progress}"
             seekbar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
                 override fun onProgressChanged(
                     seekBar: SeekBar?,
                     progress: Int,
                     fromUser: Boolean
                 ) {
-                    current.text = "shadowRadius: $progress"
+                    current.text = "ShadowRadius: $progress"
                     shadowLayout.updateShadowRadius(progress.pxF)
                 }
 
@@ -39,14 +39,14 @@ class MainActivity : AppCompatActivity() {
         binding.shadowCorner.apply {
             seekbar.progress = 0
             seekbar.max = 50
-            current.text = "shadowCorner: ${seekbar.progress}"
+            current.text = "ShadowCorner: ${seekbar.progress}"
             seekbar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
                 override fun onProgressChanged(
                     seekBar: SeekBar?,
                     progress: Int,
                     fromUser: Boolean
                 ) {
-                    current.text = "shadowCorner: $progress"
+                    current.text = "ShadowCorner: $progress"
                     shadowLayout.updateShadowCorners(progress.pxF)
                 }
 
@@ -62,6 +62,7 @@ class MainActivity : AppCompatActivity() {
         binding.shadowDx.apply {
             seekbar.progress = 25
             seekbar.max = 50
+            current.text = "ShadowDx: ${shadowLayout.shadowSpec.shadowDX}"
             seekbar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
                 override fun onProgressChanged(
                     seekBar: SeekBar?,
@@ -69,7 +70,7 @@ class MainActivity : AppCompatActivity() {
                     fromUser: Boolean
                 ) {
                     val dx = (progress - seekBar!!.max / 2)
-                    current.text = "shadowDx: $dx"
+                    current.text = "ShadowDx: $dx"
                     shadowLayout.updateShadowOffsetX(dx.pxF)
                 }
 
@@ -86,6 +87,7 @@ class MainActivity : AppCompatActivity() {
         binding.shadowDy.apply {
             seekbar.progress = 25
             seekbar.max = 50
+            current.text = "ShadowDx: ${shadowLayout.shadowSpec.shadowDY}"
             seekbar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
                 override fun onProgressChanged(
                     seekBar: SeekBar?,
@@ -93,7 +95,7 @@ class MainActivity : AppCompatActivity() {
                     fromUser: Boolean
                 ) {
                     val dy = (progress - seekBar!!.max / 2)
-                    current.text = "shadowDy: $dy"
+                    current.text = "ShadowDy: $dy"
                     shadowLayout.updateShadowOffsetY(dy.pxF)
                 }
 

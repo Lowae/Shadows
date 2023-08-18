@@ -36,6 +36,8 @@ class ShadowRelativeLayout @JvmOverloads constructor(
         shadowImpl.onSizeChanged(w, h, oldw, oldh)
     }
 
+    override val shadowSpec: ShadowSpec = shadowImpl.shadowSpec
+
     override fun updateShadowColor(shadowColor: Int) {
         shadowImpl.updateShadowColor(shadowColor)
     }

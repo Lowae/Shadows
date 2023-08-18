@@ -8,6 +8,8 @@ import androidx.annotation.Px
  */
 interface ShadowAbility {
 
+    val shadowSpec: ShadowSpec
+
     fun updateShadowColor(@ColorInt shadowColor: Int)
 
     fun updateShadowRadius(@Px shadowRadius: Float)
