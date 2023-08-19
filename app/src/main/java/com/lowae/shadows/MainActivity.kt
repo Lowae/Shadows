@@ -1,5 +1,6 @@
 package com.lowae.shadows
 
+import android.content.res.Resources
 import android.os.Bundle
 import android.widget.SeekBar
 import androidx.appcompat.app.AppCompatActivity
@@ -16,22 +17,9 @@ class MainActivity : AppCompatActivity() {
             seekbar.progress = 20
             seekbar.max = 32
             current.text = "ShadowRadius: ${seekbar.progress}"
-            seekbar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-                override fun onProgressChanged(
-                    seekBar: SeekBar?,
-                    progress: Int,
-                    fromUser: Boolean
-                ) {
-                    current.text = "ShadowRadius: $progress"
-                    shadowLayout.updateShadowRadius(progress.pxF)
-                }
-
-                override fun onStartTrackingTouch(seekBar: SeekBar?) {
-                }
-
-                override fun onStopTrackingTouch(seekBar: SeekBar?) {
-                }
-
+            seekbar.setOnSeekBarChangeListener(onProgressChanged { seekBar, progress, fromUser ->
+                current.text = "ShadowRadius: $progress"
+                shadowLayout.updateShadowRadius(progress.pxF)
             })
             max.text = seekbar.max.toString()
         }
@@ -40,22 +28,9 @@ class MainActivity : AppCompatActivity() {
             seekbar.progress = 0
             seekbar.max = 50
             current.text = "ShadowCorner: ${seekbar.progress}"
-            seekbar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-                override fun onProgressChanged(
-                    seekBar: SeekBar?,
-                    progress: Int,
-                    fromUser: Boolean
-                ) {
-                    current.text = "ShadowCorner: $progress"
-                    shadowLayout.updateShadowCorners(progress.pxF)
-                }
-
-                override fun onStartTrackingTouch(seekBar: SeekBar?) {
-                }
-
-                override fun onStopTrackingTouch(seekBar: SeekBar?) {
-                }
-
+            seekbar.setOnSeekBarChangeListener(onProgressChanged { seekBar, progress, fromUser ->
+                current.text = "ShadowCorner: $progress"
+                shadowLayout.updateShadowCorners(progress.pxF)
             })
             max.text = seekbar.max.toString()
         }
@@ -63,23 +38,10 @@ class MainActivity : AppCompatActivity() {
             seekbar.progress = 25
             seekbar.max = 50
             current.text = "ShadowDx: ${shadowLayout.shadowSpec.shadowDX}"
-            seekbar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-                override fun onProgressChanged(
-                    seekBar: SeekBar?,
-                    progress: Int,
-                    fromUser: Boolean
-                ) {
-                    val dx = (progress - seekBar!!.max / 2)
-                    current.text = "ShadowDx: $dx"
-                    shadowLayout.updateShadowOffsetX(dx.pxF)
-                }
-
-                override fun onStartTrackingTouch(seekBar: SeekBar?) {
-                }
-
-                override fun onStopTrackingTouch(seekBar: SeekBar?) {
-                }
-
+            seekbar.setOnSeekBarChangeListener(onProgressChanged { seekBar, progress, fromUser ->
+                val dx = (progress - seekBar!!.max / 2)
+                current.text = "ShadowDx: $dx"
+                shadowLayout.updateShadowOffsetX(dx.pxF)
             })
             max.text = seekbar.max.toString()
         }
@@ -88,25 +50,38 @@ class MainActivity : AppCompatActivity() {
             seekbar.progress = 25
             seekbar.max = 50
             current.text = "ShadowDx: ${shadowLayout.shadowSpec.shadowDY}"
-            seekbar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-                override fun onProgressChanged(
-                    seekBar: SeekBar?,
-                    progress: Int,
-                    fromUser: Boolean
-                ) {
-                    val dy = (progress - seekBar!!.max / 2)
-                    current.text = "ShadowDy: $dy"
-                    shadowLayout.updateShadowOffsetY(dy.pxF)
-                }
-
-                override fun onStartTrackingTouch(seekBar: SeekBar?) {
-                }
-
-                override fun onStopTrackingTouch(seekBar: SeekBar?) {
-                }
-
+            seekbar.setOnSeekBarChangeListener(onProgressChanged { seekBar, progress, fromUser ->
+                val dy = (progress - seekBar!!.max / 2)
+                current.text = "ShadowDy: $dy"
+                shadowLayout.updateShadowOffsetY(dy.pxF)
             })
             max.text = seekbar.max.toString()
         }
     }
+
+    private fun onProgressChanged(onProgressChanged: (SeekBar?, Int, Boolean) -> Unit): SeekBar.OnSeekBarChangeListener {
+        return object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(
+                seekBar: SeekBar?,
+                progress: Int,
+                fromUser: Boolean
+            ) {
+                onProgressChanged(seekBar, progress, fromUser)
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar?) = Unit
+
+            override fun onStopTrackingTouch(seekBar: SeekBar?) = Unit
+
+        }
+    }
 }
+
+private val resources = Resources.getSystem()
+
+private val Number.dpF: Float
+    get() = this.toFloat() / resources.displayMetrics.density
+
+
+private val Number.pxF: Float
+    get() = this.toFloat() * resources.displayMetrics.density

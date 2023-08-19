@@ -45,7 +45,7 @@ publishing {
         register<MavenPublication>("release") {
             groupId = "com.lowae.shadows"
             artifactId = "shadows"
-            version = "1.0.1-alpha01"
+            version = "1.0.1-alpha02"
 
             afterEvaluate {
                 from(components["release"])
