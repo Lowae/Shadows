@@ -12,7 +12,9 @@
         <attr name="shadow_corner_tr" format="dimension" />
         <attr name="shadow_corner_bl" format="dimension" />
         <attr name="shadow_corner_br" format="dimension" />
+        <!-- 作用于阴影上层的background，因为绘制流程的原因无法自定义控制background的bound，所以需要替换android:background属性 -->
         <attr name="shadow_background" format="reference|color" />
+        <!-- 自动设置预留阴影的padding，默认值为true，如果不需要可设置为false但是需要自己设置预留空间或者设置clipChildren=false属性 -->
         <attr name="include_shadow_padding" format="boolean" />
     </declare-styleable>
 </resources>
