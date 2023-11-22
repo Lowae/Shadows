@@ -68,7 +68,10 @@ class ShadowAbilityImpl(override val view: View) : ShadowViewDelegate, ShadowAbi
             }
             updateShadowPadding(shadowDrawable.shadowSpec)
 
-            layerDrawable = LayerDrawable(arrayOf(shadowDrawable, shadowBackground))
+            layerDrawable = LayerDrawable(
+                if (shadowBackground != null) arrayOf(shadowDrawable, shadowBackground)
+                else arrayOf(shadowDrawable)
+            )
         } finally {
             attr.recycle()
         }
